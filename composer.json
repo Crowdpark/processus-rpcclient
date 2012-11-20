@@ -1,0 +1,14 @@
+{
+    "name": "processus/rpcclient",
+    "description": "http rpc client support also socket (zeromq)",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "FrancisVarga",
+            "email": "github@varga-net.com"
+        }
+    ],
+    "require": {
+
+    }
+}
