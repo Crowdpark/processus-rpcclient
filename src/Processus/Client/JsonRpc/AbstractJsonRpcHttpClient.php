@@ -32,7 +32,7 @@ abstract class AbstractJsonRpcHttpClient
     private $_curlList;
 
     /**
-     * @param string $gateway
+     * @param $gateway
      *
      * @return AbstractJsonRpcHttpClient
      */
