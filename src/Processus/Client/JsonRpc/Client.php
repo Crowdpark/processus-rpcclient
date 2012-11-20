@@ -8,7 +8,7 @@
  */
 namespace Processus\Client\JsonRpc;
 
-class Client extends BaseHttpClient
+class Client extends AbstractJsonRpcHttpClient
 {
 
 }

@@ -15,7 +15,7 @@ interface InterfaceJsonRpcRequest
      *
      * @param int $id
      */
-    public function setRpcId(int $id);
+    public function setRpcId($id);
 
     /**
      * @abstract
@@ -28,7 +28,7 @@ interface InterfaceJsonRpcRequest
      *
      * @param array $params
      */
-    public function setParams(array $params);
+    public function setParams($params);
 
     /**
      * @abstract
@@ -41,7 +41,7 @@ interface InterfaceJsonRpcRequest
      *
      * @param string $method
      */
-    public function setMethod(string $method);
+    public function setMethod($method);
 
     /**
      * @abstract
@@ -54,4 +54,20 @@ interface InterfaceJsonRpcRequest
      * @return array
      */
     public function getPostData();
+
+    /**
+     * @abstract
+     *
+     * @param $cookieKey
+     * @param $cookieData
+     *
+     * @return mixed
+     */
+    public function addCookie($cookieKey, $cookieData);
+
+    /**
+     * @abstract
+     * @return mixed
+     */
+    public function getCookies();
 }

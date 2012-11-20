@@ -27,14 +27,23 @@ class JsonRpcDataVo implements InterfaceJsonRpcRequest
     private $_method;
 
     /**
+     * @var array
+     */
+    private $_extendedData;
+
+    /**
+     * @var array
+     */
+    private $_cookieList;
+
+    /**
      * @param int $id
      *
      * @return JsonRpcDataVo
      */
-    public function setRpcId(int $id)
+    public function setRpcId($id)
     {
         $this->_rpcId;
-
         return $this;
     }
 
@@ -43,10 +52,9 @@ class JsonRpcDataVo implements InterfaceJsonRpcRequest
      *
      * @return JsonRpcDataVo
      */
-    public function setParams(array $params)
+    public function setParams($params)
     {
         $this->_params = $params;
-
         return $this;
     }
 
@@ -55,10 +63,9 @@ class JsonRpcDataVo implements InterfaceJsonRpcRequest
      *
      * @return JsonRpcDataVo
      */
-    public function setMethod(string $method)
+    public function setMethod($method)
     {
         $this->_method = $method;
-
         return $this;
     }
 
@@ -91,11 +98,51 @@ class JsonRpcDataVo implements InterfaceJsonRpcRequest
      */
     public function getPostData()
     {
-        $postData           = array();
-        $postData['id']     = $this->getRpcId();
-        $postData['method'] = $this->getMethod();
-        $postData['params'] = $this->getParams();
+        $postData             = array();
+        $postData['id']       = $this->getRpcId();
+        $postData['method']   = $this->getMethod();
+        $postData['params']   = $this->getParams();
+        $postData['extended'] = $this->getExtendedData();
 
         return json_encode($postData);
+    }
+
+    /**
+     * @param $extendedData
+     *
+     * @return JsonRpcDataVo
+     */
+    public function setExtendedData($extendedData)
+    {
+        $this->_extendedData = $extendedData;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getExtendedData()
+    {
+        return $this->_extendedData;
+    }
+
+    /**
+     * @param $cookieKey
+     * @param $cookieData
+     *
+     * @return mixed|JsonRpcDataVo
+     */
+    public function addCookie($cookieKey, $cookieData)
+    {
+        $this->_cookieList[] = $cookieKey . "=" . $cookieData;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCookies()
+    {
+        return $this->_cookieList;
     }
 }
