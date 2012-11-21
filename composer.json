@@ -1,7 +1,8 @@
 {
     "name": "processus/rpcclient",
-    "description": "http rpc client support also socket (zeromq)",
+    "description": "HTTP rpc (JSON-RPC 2.0) client with cookie support",
     "minimum-stability": "dev",
+    "license":"MIT",
     "authors": [
         {
             "name": "FrancisVarga",
